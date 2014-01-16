@@ -69,7 +69,7 @@
 						<td>xiaowang(67800)</td>
 					</tr>
 					<tr>
-						<td><a href="html/member.html">read more >></a></td>
+						<td><a href="html/member.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -78,7 +78,7 @@
 						<td>womou(1234) limou(345566)</td>
 					</tr>
 					<tr>
-						<td><a href="html/member.html">read more >></a></td>
+						<td><a href="html/member.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -87,7 +87,7 @@
 						<td>wangmo(12345)limou(26278)</td>
 					</tr>
 					<tr>
-						<td><a href="html/member.html">read more >></a></td>
+						<td><a href="html/member.php">read more >></a></td>
 					</tr>
 				</table>
 			</div>

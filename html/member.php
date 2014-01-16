@@ -17,7 +17,7 @@
 		    </header>
 		    <div class="memberinfo">
 		    	<h2>
-		    		<a href="../index.html">return>></a>
+		    		<a href="../index.php">return>></a>
 		    	</h2>
 		    	<table cellspacing="0">
 		    		<caption>11级成员信息</caption>
