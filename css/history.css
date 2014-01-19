@@ -1,0 +1,119 @@
+body{
+    background-image: url("../img/background1.jpg");
+}
+
+.div-module h1{
+    font-family: "微软雅黑";
+    font-size: 1.8em;
+    font-weight: 300;
+    margin: 10px;
+    color: #fff;
+}
+
+
+.div-module tr:nth-child(odd){
+    background-color: rgba(249, 249, 249, 0.59);
+}
+.div-module td{
+    padding: 8px;
+    line-height: 20px;
+    text-align: center;
+    vertiacl-align: top;
+    display: table-cell;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+#return{
+    position: relative;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    margin: 5px;
+    padding: 0;
+    float: right;
+    color: #fff;
+}
+.table-module{
+    margin: 10px 0;
+    border: 0;
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 2px;
+    border-color: gray;
+
+}
+
+.dividing-line{
+    margin: 5px 0;
+    border-top: 1px solid #ddd;
+    position: relative;
+    height: 5px;
+}
+
+#search{
+    background-color: rgba(22, 22, 22, 0.09); 
+    width: 233px;
+    height: 500px;
+    float: left;
+    position: absolute;
+}
+
+#search input{
+    height: 30px;
+    width: 195px;
+    padding: 4px 6px;
+    font-size: 14px;
+    border: 0px;
+    border-radius: 5px;
+    -webkit-box-shadow: nset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: et 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border linear .2s,box-shadow linear .2s;
+    -moz-transition: border linear .2s,box-shadow linear .2s;
+    -o-transition: border linear .2s,box-shadow linear .2s;
+    transition:  border linear .2s,box-shadow linear .2s;
+    line-height: 20px;
+    color: #141414;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 10px 0;
+}
+
+#search input:focus{
+    border-color: rgba(218, 213, 213, 0.8);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6);
+}
+
+#search button{
+    background: rgba(196, 191, 191, 0.41) url("../img/search.png") center no-repeat;
+    border-radius: 5px;
+    padding: 8px 0;
+    margin: 5px 0 5px 5px;
+    border: 1px solid rgba(162, 162, 162, 0.41);
+    height: 28px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#search button:hover{
+    background-color: rgba(116, 114, 114, 0.41) ;
+}
+
+#content{
+    background-color: rgba(0,54,161,0.188888888);
+    width: 570px;
+    height: 900px;
+    left: 273px;
+}
+
+.div-module{
+    position: relative;
+    padding: 10px;
+    margin: 15px 10px 15px 0;
+    border-radius: 10px;
+}
+
+
