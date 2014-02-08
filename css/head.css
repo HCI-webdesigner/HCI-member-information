@@ -1,0 +1,58 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.logo{
+	position: relative;
+	width: 253px;
+	height: 143px;
+	background: url(../img/logo.png) rgba(10,10,10,0.04)  no-repeat;
+	float: left;
+    border-radius:0 0 6px 6px; 
+}
+.logo h1{
+	position: absolute;
+	left: 153px;
+	top:32px;
+	color: #ff9c00;
+	font-size: 36px;
+	letter-spacing: 0.5em;
+	text-shadow:-1px -1px 2px blue,
+	            -2px -2px 3px #FFC700;
+}
+.logo h2{
+	position: absolute;
+	left: 156px;
+	top: 84px;
+	font-size: 22px;
+	letter-spacing: 0.5em;
+	color: #A66500;
+	text-shadow:-1px -1px 2px #BFA030,
+	            -2px -2px 3px #3921FF;
+}
+.logo h2 span{
+	position: absolute;
+	left:-21px;
+	top: -14px;
+	color: green;
+}
+.theme{
+	width:929px;
+	height: 127px;
+}
+.theme h1{
+	padding-top: 38px;
+	text-indent: 20px;
+	letter-spacing: 0.1em;
+	font-size: 48px;
+	color:#A62F00;
+	text-shadow:rgb(187,187,187) 0px 1px 0px,
+    		    rgb(255,223,38) 0px 2px 0px,
+    		    rgb(255,223,38) 0px 3px 0px,
+    		    rgb(160,160,160) 0px 4px 0px,
+    		    rgb(145,145,145) 0px 5px 0px,
+    		    rgb(127,127,127) 0px 6px 0px,
+    		    rgba(0,0,0,0.199219) 0px 7px 1px,
+    		    rgba(233,233,11,0.8)  0px 8px 10px;
+}

@@ -2,18 +2,20 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>HCI签到管理</title>
+		<link rel="stylesheet" href="css/head.css">
 		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
 		<div class="all-content">
 			<header>
-				<div class="logo">
+			    <?php include 'html/head.php'; ?>
+				<!-- <div class="logo">
 					<h1>HCI</h1>
 					<h2><span>@</span>SCAU</h2>
 				</div>
 				<div class="theme">
 				<h1>HCI REGISTRATION</h1>
-				</div>
+				</div> -->
 			</header>
 			<div class="middle">
 				<div class="middle-metting">
@@ -37,7 +39,7 @@
 			</div>
 			<div class="left-side">
 			    <h2>各年级人员名单</h2>
-			    <table>
+			    <!-- <table>
 			    	<caption>HCI重要人物</caption>
 			    	<tr>
 			    		<td>办公室主任：王海英</td>
@@ -57,7 +59,7 @@
 			    	<tr>
 			    		<td>前端开发部长：方思霓 严思雯</td>
 			    	</tr>
-			    </table>
+			    </table> -->
 				<table >
 					<caption>13级</caption>
 					<tr>
@@ -69,7 +71,7 @@
 						<td>xiaowang(67800)</td>
 					</tr>
 					<tr>
-						<td><a href="html/history.php">read more >></a></td>
+						<td><a href="html/member.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -78,7 +80,7 @@
 						<td>womou(1234) limou(345566)</td>
 					</tr>
 					<tr>
-						<td><a href="html/history.php">read more >></a></td>
+						<td><a href="html/member.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -87,7 +89,7 @@
 						<td>wangmo(12345)limou(26278)</td>
 					</tr>
 					<tr>
-						<td><a href="html/history.php">read more >></a></td>
+						<td><a href="html/member.php">read more >></a></td>
 					</tr>
 				</table>
 			</div>
@@ -121,7 +123,7 @@
 						<td>小兰（5）</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="">read more >></a></td>
+						<td colspan="2"><a href="html/history.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -132,7 +134,7 @@
 						<td>小康(2)</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="">read more >></a></td>
+						<td colspan="2"><a href="html/history.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -143,7 +145,7 @@
 						<td>小白(2)</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="">read more >></a></td>
+						<td colspan="2"><a href="html/history.php">read more >></a></td>
 					</tr>
 				</table>
 				<table>
@@ -154,7 +156,7 @@
 						<td>小猪(2)</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="">read more >></a></td>
+						<td colspan="2"><a href="html/history.php">read more >></a></td>
 					</tr>
 				</table>
 				</div>
