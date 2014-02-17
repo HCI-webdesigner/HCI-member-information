@@ -15,7 +15,7 @@
 		    		<a href="../index.php">return>></a>
 		    	</h2>
 		    	<?php 
-		    	$con=mysql_connect("localhost","root","root");
+		    	$con=@mysql_connect("localhost","root","root");
 		    	if (!$con) {
 		    		die('Could not connect: '.mysql_error());
 		    	}
@@ -101,19 +101,28 @@
 		    		<input type="submit" value="GO" class="submit">
 		    	</form>
 		    	<?php
-		    	$con=mysql_connect("localhost","root","root");
+		    	$con=@mysql_connect("localhost","root","root");
 		    	if (!$con) {
 		    		die('Could not connect: '.mysql_error());
 		    	}
-		    	$name=$_POST['name'];
+		    	if(isset($_POST['name'])) {
+		    		$name=$_POST['name'];
+		    	
+		    	
 		    	mysql_select_db("hcichart",$con);
-		    	$result=mysql_query("select name,grade,department
+		    	$result=mysql_query("select name,grade,long_phone,short_phone,department
 		    		from member where name='$name'");//搜索出现问题
 		    	// echo $_POST['name'];
-		    	echo $result["name"];
-		    	echo $result["grade"];
-		    	echo $result["department"];
+		    	$row = mysql_fetch_array($result);
+		    	echo "<div class=\"search_member\">";
+		    	echo "<p>姓名：".$row['name']."</p>";
+		    	echo "<p>年级：".$row['grade']."</p>";
+		    	echo "<p>长号：".$row['long_phone']."</p>";
+		        echo "<p>短号：".$row['short_phone']."</p>";
+		    	echo "<p>部门：".$row['department']."</p>";
+		    	echo "</div>";
 		    	mysql_close($con);
+		    	}
 		    	 ?>
 		    </div>
 		</div>

@@ -21,6 +21,7 @@ header{
 	position: relative;
 	width: 570px;
 	margin-left: 253px;
+	padding-bottom: 50px;
     background-color: rgba(255,255,255,0.3);
     border-top-right-radius: 10px;
 }
@@ -84,4 +85,11 @@ header{
 	background-color: rgba(10,10,10,0.1);
 	color: #7CC5E9;
  
+}
+.search_member{
+	margin-left: 10px;
+	font-size: 1.3em;
+}
+.search_member p{
+	padding-bottom: 5px;
 }
