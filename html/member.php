@@ -15,82 +15,27 @@
 		    		<a href="../index.php">return>></a>
 		    	</h2>
 		    	<?php 
-		    	$con=@mysql_connect("localhost","root","root");
-		    	if (!$con) {
-		    		die('Could not connect: '.mysql_error());
-		    	}
-		    	mysql_select_db("hcichart",$con);
+		    	include '../html/connect_member.php';
 		    	//13级成员信息
 		    	$result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department from member where grade=13");
 		    	echo "<table cellspacing=\"0\">
-		    		<caption>13级成员信息</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>13级成员信息</caption>";
+		    		include '../html/member_th.php';	
 		    	echo "</table>";
                 //12级成员信息
 		    	$result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department from member where grade=12");
 		    	echo "<table cellspacing=\"0\">
-		    		<caption>12级成员信息</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>12级成员信息</caption>";
+		    		include '../html/member_th.php';
 		    	echo "</table>";
                 //11级成员信息
                 $result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department from member where grade=11");
 		    	echo "<table cellspacing=\"0\">
-		    		<caption>11级成员信息</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>11级成员信息</caption>";
+		    		include '../html/member_th.php';
 		    	echo "</table>";
 		    	mysql_close($con);
 		    	 ?>
@@ -101,15 +46,9 @@
 		    		<input type="submit" value="GO" class="submit">
 		    	</form>
 		    	<?php
-		    	$con=@mysql_connect("localhost","root","root");
-		    	if (!$con) {
-		    		die('Could not connect: '.mysql_error());
-		    	}
+		    	include '../html/connect_member.php';
 		    	if(isset($_POST['name'])) {
-		    		$name=$_POST['name'];
-		    	
-		    	
-		    	mysql_select_db("hcichart",$con);
+		    		$name=$_POST['name'];	
 		    	$result=mysql_query("select name,grade,long_phone,short_phone,department
 		    		from member where name='$name'");
 		    	if (!$result) {

@@ -15,108 +15,31 @@
 		    		<a href="../index.php">return>></a>
 		    	</h2>
 		    	<?php 
-		    	$con=@mysql_connect("localhost","root","root");
-		    	if (!$con) {
-		    		die('Could not connect: '.mysql_error());
-		    	}
-		    	mysql_select_db("hcichart",$con);
+		    	include '../html/connect_member.php';
 		    	//前端成员信息
 		    	$result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department,times from member where department='前端'");
 		    	echo"<table cellspacing=\"0\">
-		    		<caption>前端</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    			<th>times</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "<td>".$row['times']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>前端</caption>";
+		    		include '../html/history_th.php';
+		    		echo "</table>";
 		    		$result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department,times from member where department='后台'");
 		    		echo"<table cellspacing=\"0\">
-		    		<caption>后台</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    			<th>times</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "<td>".$row['times']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>后台</caption>";
+		    		include '../html/history_th.php';
+		    		echo "</table>";
 		    		$result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department,times from member where department='移动'");
 		    		echo"<table cellspacing=\"0\">
-		    		<caption>移动</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    			<th>times</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "<td>".$row['times']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>移动</caption>";
+		    		include '../html/history_th.php';
+		    		echo "</table>";
 		    		$result=mysql_query("select ID,name,grade,long_phone,
 		    		short_phone,department,times from member where department='系统'");
 		    		echo"<table cellspacing=\"0\">
-		    		<caption>系统</caption>
-		    		<tr>
-		    			<th>ID</th>
-		    			<th>name</th>
-		    			<th>grade</th>
-		    			<th>long-phone</th>
-		    			<th>short-phone</th>
-		    			<th>department</th>
-		    			<th>times</th>
-		    		</tr>";
-		    		while ($row=mysql_fetch_array($result)) {
-		    			echo "<tr>";
-		    			echo "<td>".$row['ID']."</td>";
-		    			echo "<td>".$row['name']."</td>";
-		    			echo "<td>".$row['grade']."</td>";
-		    			echo "<td>".$row['long_phone']."</td>";
-		    			echo "<td>".$row['short_phone']."</td>";
-		    			echo "<td>".$row['department']."</td>";
-		    			echo "<td>".$row['times']."</td>";
-		    			echo "</tr>";
-		    		}
+		    		<caption>系统</caption>";
+		    		include '../html/history_th.php';
 		    		echo "</table>";		    	
 		    	 ?>
 		    </div>
@@ -126,13 +49,9 @@
 		    		<input type="submit" value="GO" class="submit">
 		    	</form>
 		    	<?php 
-		    	$con=@mysql_connect("localhost","root","root");
-		    	if (!$con) {
-		    		die('Could not connect:'. mysql_error());
-		    	}
+		    	include '../html/connect_member.php';
 		    	if (isset($_POST['name'])) {
 		    		$name=$_POST['name'];
-		    	mysql_select_db("hcichart",$con);
 		    	$result=mysql_query("select name,grade,department,times
 		    		from member where name='$name'");
 		    	if (!$result) {
