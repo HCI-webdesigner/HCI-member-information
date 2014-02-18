@@ -17,142 +17,231 @@
 				<div class="middle-login">
 					<h2>登记处</h2>
 				</div>
-				<form action="" method="gets">
+				<form action="" method="post">
 				    <p class="name">
-				    	姓名：<input type="text" placeholder="张三">
+				    	姓名：<input type="text" placeholder="张三" name="name">
 				    </p>
 				    <p class="student-number">
-				    	学号：<input type="text" placeholder="201130720228">
+				    	学号：<input type="text" placeholder="201130720228" name="student-number">
 				    </p>
 				    <div class="commit">
 				        <input type="submit" value="submit" >
 				        <input type="reset" value="reset">
 				    </div>
 				</form>
+
+				
+				<?php //插入还没搞定
+				$con=mysql_connect("localhost","root","root");
+				if (!$con) {
+					die('Could not connect: '.mysql_error());
+				}	
+				if (isset($_POST['name'])) {
+					$name=$_POST['name'];
+					mysql_select_db("hcichart",$con);
+				    mysql_query("update times set times++ where name='$name'");
+				    mysql_close($con);    
+				}
+				
+				 ?>
 			</div>
 			<div class="left-side">
 			    <h2>各年级人员名单</h2>
-			    <!-- <table>
-			    	<caption>HCI重要人物</caption>
-			    	<tr>
-			    		<td>办公室主任：王海英</td>
-			    	</tr>
-			    	<tr>
-		                <td>办公室负责人：叶志良</td>
-			    	</tr>
-			    	<tr>
-			    		<td>移动开发部长：黄旭辉</td>
-			    	</tr>
-			    	<tr>
-			    		<td>系统测试部长：邱传旭</td>
-			    	</tr>
-			    	<tr>
-			    		<td>后台开发部长：钟煜</td>
-			    	</tr>
-			    	<tr>
-			    		<td>前端开发部长：方思霓 严思雯</td>
-			    	</tr>
-			    </table> -->
-				<table >
-					<caption>13级</caption>
-					<tr>
-						<td>张三小(62000)</td>
-						<td>whylzm(6465181)</td>
-					</tr>
-					<tr>
-						<td>xiaoli(678678)</td>
-						<td>xiaowang(67800)</td>
-					</tr>
-					<tr>
-						<td><a href="html/member.php">read more >></a></td>
-					</tr>
-				</table>
-				<table>
-					<caption>12级</caption>
-					<tr>
-						<td>womou(1234) limou(345566)</td>
-					</tr>
-					<tr>
-						<td><a href="html/member.php">read more >></a></td>
-					</tr>
-				</table>
-				<table>
-					<caption>11级</caption>
-					<tr>
-						<td>wangmo(12345)limou(26278)</td>
-					</tr>
-					<tr>
-						<td><a href="html/member.php">read more >></a></td>
-					</tr>
-				</table>
+			    <?php 
+			    $con=mysql_connect("localhost","root","root");
+			    if (!$con) {
+			    	die('Could not connect: '.mysql_error());
+			    }
+			    mysql_select_db("hcichart",$con);
+			    $result=mysql_query("select name,short_phone from member where grade=13");
+			    if (!$result) {
+		    		echo "Could not run query: ".mysql_error();
+		    		exit();
+		    	}
+		    	echo "<div class=\"grade\">";
+		    	echo "<h2>13级</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['short_phone'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==2) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/member.php\">read more>></a></p>";
+		    	echo "</div>";
+		    	$result=mysql_query("select name,short_phone from member where grade=12");
+			    if (!$result) {
+		    		echo "Could not run query: ".mysql_error();
+		    		exit();
+		    	}
+		    	echo "<div class=\"grade\">";
+		    	echo "<h2>12级</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['short_phone'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==2) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/member.php\">read more>></a></p>";
+		    	echo "</div>";
+		    	$result=mysql_query("select name,short_phone from member where grade=11");
+			    if (!$result) {
+		    		echo "Could not run query: ".mysql_error();
+		    		exit();
+		    	}
+		    	echo "<div class=\"grade\">";
+		    	echo "<h2>11级</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['short_phone'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==2) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/member.php\">read more>></a></p>";
+		    	echo "</div>";
+		    	mysql_close($con);
+			     ?>
 			</div>
 			<div class="right-side">
 				<h2>已签到人员</h2>
-				<table>
-					<tr>
-						<td>小李</td>
-						<td>夏丽</td>
-						<td>小李</td>
-						<td>夏丽</td>
-						<td>小李</td>
-						<td>夏丽</td>
-					</tr>
-					<tr>
-						<td>小李</td>
-						<td>夏丽</td>
-						<td>小李</td>
-						<td>夏丽</td>
-						<td>小李</td>
-						<td>夏丽</td>
-					</tr>
-				</table>
-				<div class="history-memory">
+				<?php
+				$name=array(); 
+				$k=0;
+				//怎样实现数组接受完所有的输入，而后一个一个遍历
+				// while (isset($_POST['name'])) {
+				// 	$name[$k]=$_POST['name'];
+				// 	$k++;
+				// }
+				// for ($i=0; $i <$k; $i++) { 
+				// 	echo $name[$i];
+				// }
+				 ?>
 				<h2>签到历史</h2>
-				<table>
-					<caption>前端</caption>
-					<tr>
-						<td>小李（2）</td>
-						<td>小王(3)</td>
-						<td>小兰（5）</td>
-					</tr>
-					<tr>
-						<td colspan="2"><a href="html/history.php">read more >></a></td>
-					</tr>
-				</table>
-				<table>
-					<caption>后台</caption>
-					<tr>
-						<td>小康(3)</td>
-						<td>小牛(4)</td>
-						<td>小康(2)</td>
-					</tr>
-					<tr>
-						<td colspan="2"><a href="html/history.php">read more >></a></td>
-					</tr>
-				</table>
-				<table>
-					<caption>移动</caption>
-					<tr>
-						<td>小白(2)</td>
-						<td>小妹(2)</td>
-						<td>小白(2)</td>
-					</tr>
-					<tr>
-						<td colspan="2"><a href="html/history.php">read more >></a></td>
-					</tr>
-				</table>
-				<table>
-					<caption>系统</caption>
-					<tr>
-						<td>小猪(2)</td>
-						<td>小屋(2)</td>
-						<td>小猪(2)</td>
-					</tr>
-					<tr>
-						<td colspan="2"><a href="html/history.php">read more >></a></td>
-					</tr>
-				</table>
-				</div>
+				<?php
+				$con=mysql_connect("localhost","root","root");
+				if (!$con) {
+				 	die("Could not connect: ".mysql_error());
+				}
+				mysql_select_db("hcichart",$con);
+				$result=mysql_query("select name,department,times from member where department='前端' order by times desc ");
+				if (!$result) {
+				 	echo "Could not run query: ".mysql_error();
+				 	exit();
+				} 
+				echo "<div class=\"grade\">";
+		    	echo "<h2>前端</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['times'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==3) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/history.php\">read more>></a></p>";
+		    	echo "</div>";
+
+		    	$result=mysql_query("select name,department,times from member where department='后台' order by times desc ");
+				if (!$result) {
+				 	echo "Could not run query: ".mysql_error();
+				 	exit();
+				} 
+				echo "<div class=\"grade\">";
+		    	echo "<h2>后台</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['times'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==3) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/history.php\">read more>></a></p>";
+		    	echo "</div>";
+
+		    	$result=mysql_query("select name,department,times from member where department='移动' order by times desc ");
+				if (!$result) {
+				 	echo "Could not run query: ".mysql_error();
+				 	exit();
+				} 
+				echo "<div class=\"grade\">";
+		    	echo "<h2>移动</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['times'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==3) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/history.php\">read more>></a></p>";
+		    	echo "</div>";
+		    	$result=mysql_query("select name,department,times from member where department='系统' order by times desc ");
+				if (!$result) {
+				 	echo "Could not run query: ".mysql_error();
+				 	exit();
+				} 
+				echo "<div class=\"grade\">";
+		    	echo "<h2>系统</h2>";
+		    	$j=0;
+		    	$i=0;
+		    	while ($row=mysql_fetch_array($result)) {
+		    		echo "<span>".$row['name']."(".$row['times'].")</span>";
+		    		$j++;
+		    		$i++;
+		    		if ($j==3) {
+		    			echo "<br>";
+		    			$j=0;
+		    		}
+		    		if ($i==8) {
+		    			break;
+		    		}
+		    	}
+		    	echo "<p><a href=\"html/history.php\">read more>></a></p>";
+		    	echo "</div>";
+		    	mysql_close($con);
+				 ?>
 			</div>
 		</div>
 	</body>

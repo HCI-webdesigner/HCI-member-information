@@ -93,18 +93,23 @@ input:focus{
 	text-align: center;
 	color: #A62F00;
 }
-.left-side table{
-	width: 250px;
-	padding-bottom: 5px;
-	border-bottom: 1px dashed #7CC5E9;
+.left-side .grade{
+	padding-bottom: 10px;
+	padding-left: 7px;
+	border-bottom: 1px dashed red;
 }
-.left-side caption{
-	color: #942121;
-	font-size: 18px;
-	padding: 20px 0;
+.right-side .grade{
+	padding-bottom: 10px;
+	padding-left: 7px;
+	border-bottom: 1px dashed red;
 }
-.left-side td{
-	padding-left: 5px;
+.left-side,.right-side p{
+	padding-top: 5px;
+}
+.left-side, .grade span{
+	font-size: 14px;
+	text-align: justify;
+	margin-right: 18px;
 }
 .right-side{
 	width: 250px;
@@ -123,28 +128,12 @@ input:focus{
 	text-align: center;
 	font-size: 18px;
 }
-.right-side td{
-	width: 140px;
-	border-bottom: 1px dashed #7CC5E9;
-	padding-left: 3px;
-	padding-bottom: 3px;
-	padding-top: 3px;
-}
-.right-side .history-memory td{
-	border-bottom: none;
-}
-.right-side .history-memory table{
-	width: 250px;
-	border-bottom: 1px dashed #ff9c00;
-}
-.right-side .history-memory table caption{
-	padding: 20px 0 10px 0 ;
-	color: #942121;
-}
-td a{
+
+p a{
 	text-decoration: none;
 	color: #BF5930;
+	font-size: 18px;
 }
-td a:hover{
+p a:hover{
 	color:#7CC5E9;
 }

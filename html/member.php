@@ -111,8 +111,11 @@
 		    	
 		    	mysql_select_db("hcichart",$con);
 		    	$result=mysql_query("select name,grade,long_phone,short_phone,department
-		    		from member where name='$name'");//搜索出现问题
-		    	// echo $_POST['name'];
+		    		from member where name='$name'");
+		    	if (!$result) {
+		    		echo "Could not run query: ".mysql_error();
+		    		exit();
+		    	}
 		    	$row = mysql_fetch_array($result);
 		    	echo "<div class=\"search_member\">";
 		    	echo "<p>姓名：".$row['name']."</p>";
