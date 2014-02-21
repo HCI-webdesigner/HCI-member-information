@@ -34,6 +34,14 @@ body{
     color: #fff;
     -webkit-transform:rotate(-9deg);
 }
+.middle .middle-metting .meeting_room{
+	position: absolute;
+	left: 265px;
+	top:105px;
+	-webkit-transform:rotate(12deg);
+	font-size: 2.3em;
+	color:#fff; 
+}
 .middle .middle-login{
 	position: absolute;
 	left:100px;

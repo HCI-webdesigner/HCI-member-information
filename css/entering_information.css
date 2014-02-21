@@ -1,0 +1,19 @@
+body{
+	background: rgba(100,100,100,0.4);
+	padding:0;
+	margin: 0;
+}
+.content{
+	padding-top: 20px;
+	width: 300px;
+	margin: 0 auto;
+}
+div h2{
+	color:rgba(100,100,100,0.7); 
+}
+form p{
+	color: #a65100;
+}
+.meeting_room,.meeting,.member_information{
+	border-bottom: 1px dashed rgba(100,100,100,0.7);
+}

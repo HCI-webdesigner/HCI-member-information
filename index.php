@@ -13,6 +13,15 @@
 			<div class="middle">
 				<div class="middle-metting">
 				    <h2>会议室:</h2>
+				    <?php 
+				    session_start();
+				   if (isset($_POST['meeting_room'])) {
+				   	echo "<div class=\"meeting_room\">";
+				   	$_SESSION['meeting_room']=$_POST['meeting_room'];
+				   	echo $_SESSION['meeting_room'];
+				   	echo "</div>";
+				   }
+				     ?>
 				</div>
 				<div class="middle-login">
 					<h2>登记处</h2>
@@ -24,8 +33,22 @@
 				    <p class="student-number">
 				    	学号：<input type="text" placeholder="只写姓名即可" name="student-number">
 				    </p>
+				    <?php 
+				    include 'html/connect_member.php';
+				     echo $_POST['meeting'];
+				    if (isset($_POST['meeting'])) {
+				    	define("meeting_post", $_POST['meeting']);
+				    }
+				    echo constant("meeting_post") ;
+				    // echo $_POST['meeting'];
+				    if (isset($_POST['name'])&&isset($meeting_post)) {
+				    	mysql_query("insert into register ('meeting','name') values (constant('meeting_post'),'$_POST[name]')");
+				        echo "insert into register ('$meeting','name') values (constant('meeting_post'),'$_POST[name]')";
+				    }
+
+				     ?>
 				    <div class="commit">
-				        <input type="submit" value="submit" >
+				        <input type="submit" value="submit">
 				        <input type="reset" value="reset">
 				    </div>
 				</form>
@@ -83,15 +106,8 @@
 			<div class="right-side">
 				<h2>已签到人员</h2>
 				<?php
-				// $name=array(); 
-				// $k=0;
-				//怎样实现数组接受完所有的输入，而后一个一个遍历
-				// while (isset($_POST['name'])) {
-				// 	$name[$k]=$_POST['name'];
-				// 	$k++;
-				// }
-				// for ($i=0; $i <$k; $i++) { 
-				// 	echo $name[$i];
+				// if (isset($_POST['meeting'])) {
+				// 	echo "<h3>".$_POST['meeting']."</h3>";
 				// }
 				 ?>
 				<h2>签到历史</h2>
