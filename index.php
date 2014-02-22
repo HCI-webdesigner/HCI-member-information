@@ -38,8 +38,8 @@
 				     echo $_POST['meeting'];
 				    if (isset($_POST['meeting'])) {
 				    	define("meeting_post", $_POST['meeting']);
+				    	echo constant("meeting_post") ;
 				    }
-				    echo constant("meeting_post") ;
 				    // echo $_POST['meeting'];
 				    if (isset($_POST['name'])&&isset($meeting_post)) {
 				    	mysql_query("insert into register ('meeting','name') values (constant('meeting_post'),'$_POST[name]')");
