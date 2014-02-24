@@ -8,10 +8,10 @@
 		<div class="content">
 			<div class="meeting_room">
 			    <h2>录入会议室</h2>
-				<form action="../index.php " method="post">
+				<form action="" method="post">
 					<p>
 						会议室：<input type="text" placeholder="537" name="meeting_room" />
-						<input type="submit" value="submit" />
+						<input type="submit" value="submit" name="sub1"/>
 					</p>
 				</form>
 				<?php 
@@ -24,18 +24,18 @@
 			</div>
 			<div class="meeting">
 			    <h2>录入例会数</h2>
-			    <form action="../index.php" method="post" >
+			    <form action="" method="post" >
 			    	<p>
 					   例会数：<input type="text" placeholder="第一次例会" name="meeting" />
-					   <input type="submit" value="submit" />
+					   <input type="submit" value="submit" name="sub2"/>
 				    </p>
-			    </form>
-			    <?php 
-			    // include '../html/connect_member.php';
-			    // $meeting=$_POST['meeting'];
-			    // mysql_query("insert into register ('meeting') values ('$meeting')");
-			    // echo "insert into register ('meeting') values ('$meeting')";
-			     ?>
+				</form>
+				<?php
+					if (isset($_POST['meeting'])) {
+						$_SESSION['meeting'] = $_POST['meeting'];
+						echo $_SESSION['meeting'];
+					}
+				?>
 			</div>
 			<div class="member_information">
 			    <h2>录入人员信息</h2>	
@@ -54,9 +54,9 @@
 			     //    echo isset($_POST['grade']);
 			        if (($_POST['name']!=null && $_POST['grade']!=null && $_POST['long_phone']!=null)|| $_POST['short_phone']!=null) {
 			    	    mysql_query("insert into member (name,grade,long_phone,short_phone,department) 
-			    	    	values ('$_POST[name]','$_POST[long_phone]','$_POST[short_phone]','$_POST[department]')");
+			    	    	values ('$_POST[name]','$_POST[grade]', '$_POST[long_phone]','$_POST[short_phone]','$_POST[department]')");
 			    	    echo "insert into member (name,grade,long_phone,short_phone,department) 
-			    	    	values ('$_POST[name]','$_POST[long_phone]','$_POST[short_phone]','$_POST[department]')";
+			    	    	values ('$_POST[name]','$_POST[grade]', '$_POST[long_phone]','$_POST[short_phone]','$_POST[department]')";
 			        }
 			    }
 			    mysql_close($con);
@@ -80,11 +80,11 @@
 			   	isset($_POST['major']) && isset($_POST['grade'])&&isset($_POST['long_phone']) && isset($_POST['short_phone'])) {
 			        if (($_POST['student_ID']!=null && $_POST['department']!=null && $_POST['m_name']!=null &&$_POST['major']!=null &&
 			        	$_POST['grade']!=null && $_POST['long_phone']!=null)|| $_POST['short_phone']!=null) {
-			    	    mysql_query("insert into minister_information (student_ID,department,m_name,major,grade,long_phone,short_phone) 
-			    	    	values ('$_POST[student_ID]','$_POST[department]','$_POST[m_name]','$_POST[major]',
+			    	    mysql_query("insert into minister_information (student_ID,department,name,major,grade,long_phone,short_phone) 
+			    	    	values ('$_POST[student_ID]','$_POST[department]','$_POST[m_name]','$_POST[major]','$_POST[grade]',
 			    	    		'$_POST[long_phone]','$_POST[short_phone]')");
-			    	    echo "insert into minister_information (student_ID,department,m_name,major,grade,long_phone,short_phone) 
-			    	    	values ('$_POST[student_ID]','$_POST[department]','$_POST[m_name]','$_POST[major]',
+			    	    echo "insert into minister_information (student_ID,department,name,major,grade,long_phone,short_phone) 
+			    	    	values ('$_POST[student_ID]','$_POST[department]','$_POST[m_name]','$_POST[major]','$_POST[grade]',
 			    	    		'$_POST[long_phone]','$_POST[short_phone]')";
 			        }
 			    }

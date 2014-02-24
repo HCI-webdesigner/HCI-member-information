@@ -15,12 +15,9 @@
 				    <h2>会议室:</h2>
 				    <?php 
 				    session_start();
-				   if (isset($_POST['meeting_room'])) {
 				   	echo "<div class=\"meeting_room\">";
-				   	$_SESSION['meeting_room']=$_POST['meeting_room'];
 				   	echo $_SESSION['meeting_room'];
 				   	echo "</div>";
-				   }
 				     ?>
 				</div>
 				<div class="middle-login">
@@ -34,16 +31,10 @@
 				    	学号：<input type="text" placeholder="只写姓名即可" name="student-number">
 				    </p>
 				    <?php 
+					session_start();
 				    include 'html/connect_member.php';
-				     echo $_POST['meeting'];
-				    if (isset($_POST['meeting'])) {
-				    	define("meeting_post", $_POST['meeting']);
-				    	echo constant("meeting_post") ;
-				    }
-				    // echo $_POST['meeting'];
-				    if (isset($_POST['name'])&&isset($meeting_post)) {
-				    	mysql_query("insert into register ('meeting','name') values (constant('meeting_post'),'$_POST[name]')");
-				        echo "insert into register ('$meeting','name') values (constant('meeting_post'),'$_POST[name]')";
+				    if (isset($_POST['name'])&&isset($_SESSION['meeting'])) {
+				    	mysql_query("insert into register (meeting,name) values ('$_SESSION[meeting]','$_POST[name]')");
 				    }
 
 				     ?>
