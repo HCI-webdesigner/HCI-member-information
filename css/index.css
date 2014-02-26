@@ -116,8 +116,11 @@ input:focus{
 }
 .left-side, .grade span{
 	font-size: 14px;
-	text-align: justify;
-	margin-right: 18px;
+	margin-right: 12px;
+}
+.right-side .register span{
+	margin-right: 13px;
+	font-size: 15px;
 }
 .right-side{
 	width: 250px;

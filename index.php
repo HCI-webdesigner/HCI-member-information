@@ -14,10 +14,13 @@
 				<div class="middle-metting">
 				    <h2>会议室:</h2>
 				    <?php 
-				    session_start();
-				   	echo "<div class=\"meeting_room\">";
-				   	echo $_SESSION['meeting_room'];
-				   	echo "</div>";
+				    include 'html/connect_member.php';
+				    $result_id=mysql_query("select meeting_room from meeting_information order by ID desc limit 1");
+				    while ($row = mysql_fetch_array($result_id)) {
+				    	echo "<div class=\"meeting_room\">";
+				     	echo $row['meeting_room'];
+				   	    echo "</div>";
+				    }
 				     ?>
 				</div>
 				<div class="middle-login">
@@ -31,12 +34,14 @@
 				    	学号：<input type="text" placeholder="只写姓名即可" name="student-number">
 				    </p>
 				    <?php 
-					session_start();
-				    include 'html/connect_member.php';
-				    if (isset($_POST['name'])&&isset($_SESSION['meeting'])) {
-				    	mysql_query("insert into register (meeting,name) values ('$_SESSION[meeting]','$_POST[name]')");
+					include 'html/connect_member.php';
+				    $result_id=mysql_query("select meeting from meeting_information order by ID desc limit 1");
+				    $row=mysql_fetch_array($result_id);
+				    $meeting=$row['meeting'];
+				    if (isset($_POST['name'])) {
+				    	$name=$_POST['name'];
+				    	mysql_query("insert into register (meeting,name) values ('$meeting','$name')");
 				    }
-
 				     ?>
 				    <div class="commit">
 				        <input type="submit" value="submit">
@@ -95,11 +100,20 @@
 			     ?>
 			</div>
 			<div class="right-side">
-				<h2>已签到人员</h2>
+				<!-- <h2>已签到人员</h2> -->
 				<?php
-				// if (isset($_POST['meeting'])) {
-				// 	echo "<h3>".$_POST['meeting']."</h3>";
-				// }
+				include 'html/connect_member.php';
+				$result_id=mysql_query("select meeting from meeting_information order by ID desc");
+				$row=mysql_fetch_array($result_id);
+				echo "<h2>".$row['meeting']."</h2>";
+				$result=mysql_query("select name from register");
+				if (!$result) {
+					echo "Could not run query: ".mysql_error();
+					exit();
+				}
+				echo "<div class=\"register\">";
+				include 'html/register_information.php';
+				echo "</div>";
 				 ?>
 				<h2>签到历史</h2>
 				<?php

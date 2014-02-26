@@ -14,6 +14,6 @@ div h2{
 form p{
 	color: #a65100;
 }
-.meeting_room,.meeting,.member_information{
+.meeting_room,.member_information{
 	border-bottom: 1px dashed rgba(100,100,100,0.7);
 }
