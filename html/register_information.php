@@ -1,6 +1,5 @@
 <?php 
 $i=0;
-
 while ($row=mysql_fetch_array($result)) {
 	echo "<span>".$row['name']."</span>";
 	$i++;
